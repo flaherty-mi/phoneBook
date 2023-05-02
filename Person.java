@@ -1,72 +1,81 @@
-// Meghan Flaherty & Adam Curtin
+/*
+ Meghan Flaherty & Adam Curtin
+ constructor class
+*/
 
-// focuses on implimentaing a single linked list
-// opportunity to use package keyword
 package phoneBook;
 import java.util.LinkedList;
-
 public class Person extends bookMain{
+    // put as public static to call variables in bookManager
+    // see if theres another way to do this
+    // (static method with variables could pass to other methods)
+    // should variables be kept private for this assignemnt - is it neccesary?
+    public static String firstNames;
+    public static String lastNames;
+    public static String addresses;
+    public static String cities;
+    public static String phoneNumbers;
 
-    private String firstName;
-    private String lastName;
-    private String address;
-    private String city;
-    private String phoneNumber;
 
+    LinkedList<Person> people = new LinkedList<>();
 
-    // LinkedList<Person> people = new LinkedList<Person>();
+    public Person(String firstNames, String lastNames, String addresses,
+                  String cities, String phoneNumbers){
 
-    public Person(String firstName, String lastName, String address,
-                        String city, String phoneNumber){
-
-        setFirstName(firstName);
-        setLastName(lastName);
-        setAddress(address);
-        setCity(city);
-        setPhoneNumber(phoneNumber);
-    }
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+        setFirstName(firstNames);
+        setLastName(lastNames);
+        setAddress(addresses);
+        setCity(cities);
+        setPhoneNumber(phoneNumbers);
     }
 
 
-
+    public String getFirstNames() {
+        return firstNames;
     }
+
+    public void setFirstName(String firstNames) {
+        this.firstNames = firstNames;
+    }
+
+    public String getLastNames() {
+        return lastNames;
+    }
+
+    public void setLastName(String lastNames) {
+        this.lastNames = lastNames;
+    }
+
+    public String getAddresses() {
+        return addresses;
+    }
+
+    public void setAddress(String addresses) {
+        this.addresses = addresses;
+    }
+
+    public String getCities() {
+        return cities;
+    }
+
+    public void setCity(String cities) {
+        this.cities = cities;
+    }
+
+    public String getPhoneNumbers() {
+        return phoneNumbers;
+    }
+
+    public void setPhoneNumber(String phoneNumbers) {
+        this.phoneNumbers = phoneNumbers;
+    }
+
+    public String toString() {
+        return String.format(firstNames + ", " + lastNames + ", " + addresses +
+                ", " + cities + ", " + phoneNumbers);
+    }
+
+
+}
 
 
