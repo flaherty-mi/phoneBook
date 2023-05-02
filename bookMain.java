@@ -1,16 +1,15 @@
 // Meghan Flaherty & Adam Curtin
 
-
 package phoneBook;
-
-
-import java.bookManager;
+import java.util.LinkedList;
 
 public class bookMain {
 
     public static void main(String[] args) {
 
-        new phoneForBook();
+      //  phoneForBook phoneBook = new phoneForBook();
+
+        new Person();
         new bookManager();
     }
 

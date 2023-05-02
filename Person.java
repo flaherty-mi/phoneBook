@@ -2,8 +2,8 @@
 
 // focuses on implimentaing a single linked list
 // opportunity to use package keyword
-import.java.util.LinkedList;
-package bookMain;
+package phoneBook;
+import java.util.LinkedList;
 
 public class Person extends bookMain{
 

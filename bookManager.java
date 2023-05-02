@@ -1,12 +1,16 @@
 // Meghan Flaherty & Adam Curtin
 
-
-
 package phoneBook;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Arrays;
 
-public class bookManager {
+public class bookManager extends bookMain{
 
+private LinkedList<Person> phoneBook;
+    public bookManager() {
 
+    }
 
 
     public void addContact() {
