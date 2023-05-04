@@ -5,21 +5,23 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Arrays;
 import java.util.Scanner;
+
 public class bookManager extends bookMain{
     String firstName = Person.firstNames;
     String lastName = Person.lastNames;
     String address = Person.addresses;
     String city = Person.cities;
     String phoneNumber = Person.phoneNumbers;
-    private LinkedList<Person> Contact;
+    // private LinkedList<Person> Contact;
     public bookManager() {
 
-      //  Contact = new LinkedList<Person>();
-
+        menu();
+        LinkedList<Person> Contact;
+        // Contact = new LinkedList<Person>();
     }
 
-    public prompt() {
-        String choice;
+    public void prompt() {
+        String choice = null;
         Scanner input = new Scanner(System.in);
         menu();
 
@@ -29,16 +31,16 @@ public class bookManager extends bookMain{
 
                 switch(choice) {
                     case "add":
-                        addContact(Scanner input);
+                        addContact(input);
                         break;
                     case "remove":
-                        deleteContact(Scanner input);
+                        deleteContact(input);
                         break;
                     case "search":
-                        searchContact(Scanner input);
+                        searchContact(input);
                         break;
                     case "change":
-                        modifyContact(Scanner input);
+                        modifyContact(input);
                         break;
                     case "quit":
                         System.exit(0);
@@ -48,6 +50,9 @@ public class bookManager extends bookMain{
                         break;
                 } // end switch
             } // end try
+            catch (Exception e) {
+                throw new RuntimeException(e);
+            }
         } // end while loop
 
     }
@@ -61,6 +66,7 @@ public class bookManager extends bookMain{
         System.out.println("Change: modify a current contact's information");
         System.out.println("Quit: quit this program");
         System.out.println("Enter the title from the options above");
+        prompt();
     }
 
     // method for adding a new contact node
@@ -87,12 +93,17 @@ public class bookManager extends bookMain{
         String num = input.next();
         // make num == phoneNumber
 
+
         if (num.length() != 12) {
             System.out.println("phone numbers must be 12 digits long. " +
                     "Please try again");
             num = input.next();
         }
-        Contact.add(new Person(firstName, lastName, address, city, phoneNumber));
+        Contact.add( new Person(firstName, lastName, address, city, phoneNumber));
+    }
+
+    public StringtoString() {
+        return String.format
     }
 
     // method for deleting a current contact node
