@@ -1,11 +1,12 @@
+
 /*
  Meghan Flaherty & Adam Curtin
  constructor class
 */
 
-package phoneBook;
 import java.util.LinkedList;
-public class Person extends bookMain{
+
+public class Person extends BookMain {
     // put as public static to call variables in bookManager
     // see if theres another way to do this
     // (static method with variables could pass to other methods)
@@ -76,6 +77,5 @@ public class Person extends bookMain{
     }
 
 
-}
-
+} // end Person class
 
