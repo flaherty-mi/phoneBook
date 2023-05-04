@@ -1,66 +1,46 @@
+// Programmers: Adam Curtin, Meghan Flaherty
 
+// Purpose: Class for storing a single node of a linked list.
+// This node is for string values.
 
 public class ListNode {
 
-    private String firstName;
-    private String lastName;
-    private String city;
-	private String address;
-	private String phoneNumber;
-	private ListNode next;
+    private String data;   // Data type
+    private ListNode next; // Link to next node in the list
 	
-	// create instance of ListNode and set next to 'null'
+	// create a Node and set next to 'null'
 	public ListNode() {
-		//data = -1;
-		next = null;
-	}
+		this(null);
+	} // end empty node construction
 
-	//create setters and getters for first firstfirstName, last firstName, address, phone number, city and ListNode
-	public String getfirstName() {
-		return firstName;
-	}
 
-	public void setfirstName(String firstName) {
-		this.firstName = firstName;
-	}
+    public String getData() {
+        return data;
+    }
 
-    public String getLastName() {
-		return lastName;
-	}
+    public void setData(String data) {
+        this.data = data;
+    }
 
-	public void setLastName(String LastName) {
-		this.lastName = lastName;
-	}
+    public ListNode getNext() {
+        return next;
+    }
 
-	public String getAddress() {
-		return address;
-	}
+    public void setNext(ListNode next) {
+        this.next = next;
+    }
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-
-	public ListNode getNext() {
-		return next;
-	}
-
-	public void setNext(ListNode next) {
-		this.next = next;
-	}
-
-	@Override
-	public String toString() {
-		return "firstName = " + firstName + ", lastName = " + lastName + ", Address = " + address + ", Phone Number = "
-				+ phoneNumber + ", city = " + city;
-	}
+    // create node with given data and null link
+    public ListNode(String data) {
+        this(data, null);
+    } // end String node null construction
+	
+    // Constructs a node with given data and given link
+    public ListNode(String data, ListNode next) {
+        this.data = data;
+        this.next = next;
+    } // end node construction
+	
 } // end node
 
 
