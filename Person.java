@@ -41,7 +41,7 @@ public class Person extends bookMain {
     }
 
     public void setFirstName(String firstNames) {
-        this.firstNames = firstNames;
+        bookMain.firstNames = firstNames;
     }
 
     public static String getLastName() {
@@ -51,7 +51,7 @@ public class Person extends bookMain {
 
     public void setLastName(String lastNames) {
 
-        this.lastNames = lastNames;
+        bookMain.lastNames = lastNames;
     }
 
     public static String getAddress() {
@@ -61,7 +61,7 @@ public class Person extends bookMain {
 
     public void setAddress(String addresses) {
 
-        this.addresses = addresses;
+        bookMain.addresses = addresses;
     }
 
     public static String getCity() {
@@ -71,7 +71,7 @@ public class Person extends bookMain {
 
     public void setCity(String cities) {
 
-        this.cities = cities;
+        bookMain.cities = cities;
     }
 
     public static String getPhoneNumber() {
@@ -81,7 +81,7 @@ public class Person extends bookMain {
 
     public void setPhoneNumber(String phoneNumbers) {
 
-        this.phoneNumbers = phoneNumbers;
+        bookMain.phoneNumbers = phoneNumbers;
     }
 
     public static Person getNext() {

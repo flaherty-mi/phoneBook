@@ -17,8 +17,8 @@ public class bookMain {
     public static void main(String[] args) {
 
       //  phoneForBook phoneBook = new phoneForBook();
-        Person blankNode = new Person(firstNames, lastNames, addresses, cities, phoneNumbers);
-        blankNode = null;
+     //   Person blankNode = new Person(firstNames, lastNames, addresses, cities, phoneNumbers);
+      //  blankNode = null;
         LinkedList<Person> Contact = new LinkedList<>();
 
         bookManager.firstNames = "Adam";

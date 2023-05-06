@@ -80,25 +80,20 @@ public class bookManager extends bookMain {
 
         System.out.println("Please input the following information as prompted");
         System.out.print("First name");
-        String first = input.next();
-        first = firstName;
-
+        firstName = input.next();
+        
         System.out.println("Last name");
-        String last = input.next();
-        last = lastName;
+        lastName = input.next();
 
         System.out.println("Address");
-        String addy = input.next();
-        addy = address;
+        address = input.next();
 
         System.out.println("City");
-        String citi = input.next();
-        citi = city;
+        city = input.next();
 
         System.out.println("Phone number: (360)");
-        String num = input.next();
-        num = phoneNumber;
-
+        phoneNumber = input.next();
+        
 
         if (num.length() != 7) {
             System.out.println("phone numbers must be 7 digits long." +
@@ -127,11 +122,14 @@ public class bookManager extends bookMain {
         boolean found = false;
 
         while (current != null) {
-            if (current.getLastName().equals(name)) {
+            if (Person.getLastName().equals(name)) {
                 if (previous == null) {
-                    head = current.getNext();
+                    Person.getNext();
+                    head = Person.next;
+                   // head = current.getNext();
                 } else {
-                    previous.setNext(current.getNext());
+                    Person.setNext(Person.getNext());
+                    previous = Person.next;
                 }
                 System.out.println("Contact deleted:");
                 // System.out.println(current.Person);
@@ -139,7 +137,7 @@ public class bookManager extends bookMain {
                 break;
             }
             previous = current;
-            current = current.getNext();
+            current = Person.getNext();
         }
 
         if (!found) {
@@ -158,13 +156,13 @@ public class bookManager extends bookMain {
         boolean found = false;
 
         while (current != null) {
-            if (current.getLastName().equals(name)) {
+            if (Person.getLastName().equals(name)) {
                 System.out.println("Contact found:");
                 // System.out.println(current.getPerson());
                 found = true;
                 break;
             }
-            current = current.getNext();
+            current = Person.getNext();
         }
 
         if (!found) {
@@ -181,21 +179,22 @@ public class bookManager extends bookMain {
         boolean found = false;
 
         while (current != null) {
-            if (current.getLastName().equals(name)) {
+            if (Person.getLastName().equals(name)) {
                 System.out.println("Contact found:");
                 // System.out.println(current.getPerson());
 
                 System.out.println("Enter new information for this contact:");
                 System.out.print("First name: ");
-                String firstName = input.next();
+                firstName = input.next();
+                
                 System.out.print("Last name: ");
-                String lastName = input.next();
+                lastName = input.next();
                 System.out.print("Address: ");
-                String address = input.next();
+                address = input.next();
                 System.out.print("City: ");
-                String city = input.next();
+                city = input.next();
                 System.out.print("Phone number: ");
-                String phoneNumber = input.next();
+                phoneNumber = input.next();
 
                 // current.getPerson();
                // Person current = head;
@@ -212,7 +211,7 @@ public class bookManager extends bookMain {
                 found = true;
                 break;
             }
-            current = current.getNext();
+            current = Person.getNext();
         }
 
         if (!found) {
