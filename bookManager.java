@@ -134,42 +134,6 @@ public class bookManager extends bookMain {
         rePrompt(Contact); 
     }
 
-
-    // method for deleting a current contact node                                           not yet working
-    public void deleteContact(Scanner input, LinkedList<Person> Contact, Person head) {
-        System.out.print("Enter the last name of the contact to delete: ");
-        String name = input.next();
-
-        this.head = head;
-        this.tail = null;
-        boolean found = false;
-
-        while (tail != null) {
-            if (lastName.equals(name)) {
-
-                if (tail == null) {
-                    Person.getNext();
-                    this.head = Person.next;
-                   // head = current.getNext();
-                } else {
-                    Person.setNext(Person.getNext());
-                    tail = Person.next;
-                }
-                System.out.println("Contact deleted:");
-                // System.out.println(current.Person);
-                found = true;
-                break;
-            }
-            // previous = current;
-            tail = Person.getNext();
-        }
-        if (!found) {
-            System.out.println("Contact not found.");
-            name = input.next();
-        }
-        rePrompt(Contact);
-    }
-
     // method for finding specific contact node                                       
     public void searchContact(Scanner input, LinkedList<Person> Contact, Person head) {
         System.out.print("Enter the last name of the contact to search for: ");
@@ -194,7 +158,38 @@ public class bookManager extends bookMain {
         rePrompt(Contact);
     }
 
-    // method for modifying a current contact node                                                               not yet working
+     // method for deleting a current contact node                                           working now
+     public void deleteContact(Scanner input, LinkedList<Person> Contact, Person head) {
+        System.out.print("Enter the last name of the contact to delete: ");
+        String name = input.next();
+
+        Person current = head;
+        this.tail = null;
+        boolean found = false;
+
+        while (current != null) {
+            if (Person.getLastName().equals(name)) {
+                if (tail == null) {
+                    Person.getNext();
+                    this.head = Person.next;
+                } else {
+                    Person.setNext(Person.getNext());
+                    tail = Person.next;
+                }
+                System.out.println("Contact deleted");
+                found = true;
+                break;
+            }
+            tail = Person.getNext();
+        }
+        if (!found) {
+            System.out.println("Contact not found.");
+            name = input.next();
+        }
+        rePrompt(Contact);
+    }
+
+    // method for modifying a current contact node                                                               working now
     public void modifyContact(Scanner input, LinkedList<Person> Contact, Person head) {
         System.out.print("Enter the last name of the contact you wish to modify: ");
         String name = input.next();
@@ -203,10 +198,13 @@ public class bookManager extends bookMain {
         boolean found = false;
 
         while (current != null) {
+            // compare input to contact names
             if (Person.getLastName().equals(name)) {
+                System.out.println();
                 System.out.println("Contact found:");
                 System.out.println("First name: " + firstNames + "  Last name: " + lastNames + "  Address: " + addresses +
                 "  City: " + cities + "  Phone number: " + phoneNumbers);
+                System.out.println();
 
                 System.out.println("Enter new information for this contact:");
                 System.out.print("First name: ");
@@ -225,13 +223,14 @@ public class bookManager extends bookMain {
                 System.out.print("Phone number: ");
                 input.nextLine();
                 phoneNumbers = input.nextLine();
-
+                    // replacing variables with new inputs
                     firstNames = Person.getFirstName();
                     lastNames = Person.getLastName();
                     addresses = Person.getAddress();
                     cities = Person.getCity();
                     phoneNumbers = Person.getPhoneNumber();
 
+                System.out.println();
                 System.out.println("Contact updated:");
                 System.out.println("First name: " + firstNames + "  Last name: " + lastNames + "  Address: " + addresses +
                 "  City: " + cities + "  Phone number: " + phoneNumbers);
