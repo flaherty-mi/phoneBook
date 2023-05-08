@@ -1,98 +1,67 @@
+
 /*
  Meghan Flaherty & Adam Curtin
  constructor class
 */
 
-package phoneBook;
+public class Person {
+    private String firstNames;
+    private String lastNames;
+    private String addresses;
+    private String cities;
+    private String phoneNumbers;
 
-import java.util.LinkedList;
-public class Person extends bookMain {
-
-    public static Person next;
-    public static Person previous; 
-
-    LinkedList<Person> people = new LinkedList<>();
-
-    public Person(String firstNames, String lastNames, String addresses,
-                  String cities, String phoneNumbers){
-        
-        next = null;
-        setFirstName(firstNames);
-        setLastName(lastNames);
-        setAddress(addresses);
-        setCity(cities);
-        setPhoneNumber(phoneNumbers);
-        getFirstName();
-        getLastName();
-        getAddress();
-        getCity();
-        getPhoneNumber();
+    public Person(String firstNames, String lastNames, String addresses, String cities, String phoneNumbers) {
+        this.firstNames = firstNames;
+        this.lastNames = lastNames;
+        this.addresses = addresses;
+        this.cities = cities;
+        this.phoneNumbers = phoneNumbers;
     }
 
-
-
-    public static String getFirstName() {
+    public String getFirstNames() {
         return firstNames;
     }
 
-    public void setFirstName(String firstNames) {
-        bookMain.firstNames = firstNames;
+    public void setFirstNames(String firstNames) {
+        this.firstNames = firstNames;
     }
 
-    public static String getLastName() {
-
+    public String getLastNames() {
         return lastNames;
     }
 
-    public void setLastName(String lastNames) {
-
-        bookMain.lastNames = lastNames;
+    public void setLastNames(String lastNames) {
+        this.lastNames = lastNames;
     }
 
-    public static String getAddress() {
-
+    public String getAddresses() {
         return addresses;
     }
 
-    public void setAddress(String addresses) {
-
-        bookMain.addresses = addresses;
+    public void setAddresses(String addresses) {
+        this.addresses = addresses;
     }
 
-    public static String getCity() {
-
+    public String getCities() {
         return cities;
     }
 
-    public void setCity(String cities) {
-
-        bookMain.cities = cities;
+    public void setCities(String cities) {
+        this.cities = cities;
     }
 
-    public static String getPhoneNumber() {
-
+    public String getPhoneNumbers() {
         return phoneNumbers;
     }
 
-    public void setPhoneNumber(String phoneNumbers) {
-
-        bookMain.phoneNumbers = phoneNumbers;
+    public void setPhoneNumbers(String phoneNumbers) {
+        this.phoneNumbers = phoneNumbers;
     }
 
-    public static Person getNext() {
-        return next;
-    }
-
-    public static void setNext(Person next) {
-        Person.next = next;
-    }
-
+    @Override
     public String toString() {
-        return String.format("First name: " + firstNames + "  Last name: " + lastNames + "  Address: " + addresses +
-                "  City: " + cities + "  Phone number: (360) " + phoneNumbers);
+        return String.format("First name: %s Last name: %s Address: %s City: %s Phone number: (360) %s",
+                firstNames, lastNames, addresses, cities, phoneNumbers);
     }
-
-
 }
-
-
