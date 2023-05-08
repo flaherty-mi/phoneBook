@@ -7,20 +7,15 @@ package phoneBook;
 
 import java.util.LinkedList;
 public class Person extends bookMain {
-    // put as public static to call variables in bookManager
-    // see if theres another way to do this
-    // (static method with variables could pass to other methods)
-    // should variables be kept private for this assignemnt - is it neccesary?
 
     public static Person next;
-
+    public static Person previous; 
 
     LinkedList<Person> people = new LinkedList<>();
 
-
-
     public Person(String firstNames, String lastNames, String addresses,
                   String cities, String phoneNumbers){
+        
         next = null;
         setFirstName(firstNames);
         setLastName(lastNames);
@@ -93,15 +88,11 @@ public class Person extends bookMain {
     }
 
     public String toString() {
-        return String.format("First name: " + firstNames + "Last name: " + lastNames + "Address: " + addresses +
-                "City: " + cities + "Phone number: (360) " + phoneNumbers);
+        return String.format("First name: " + firstNames + "  Last name: " + lastNames + "  Address: " + addresses +
+                "  City: " + cities + "  Phone number: (360) " + phoneNumbers);
     }
 
 
-  //  public static ContactNode.Node getPerson() {
-       // ContactNode.Node Person;
-       // return Person;
-    // }
 }
 
 
