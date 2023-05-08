@@ -16,21 +16,21 @@ public class bookMain {
 
     public static void main(String[] args) {
 
-      //  phoneForBook phoneBook = new phoneForBook();
-     //   Person blankNode = new Person(firstNames, lastNames, addresses, cities, phoneNumbers);
-      //  blankNode = null;
+       // Person Contact  = new Person(firstNames, lastNames, addresses, cities, phoneNumbers);
+
+
         LinkedList<Person> Contact = new LinkedList<>();
 
-        bookManager.firstNames = "Adam";
-        bookManager.lastNames = "Curtin";
-        bookManager.addresses = "700 col Ave NE";
+        bookManager.firstNames = "Meghan";
+        bookManager.lastNames = "Flaherty";
+        bookManager.addresses = "700 Corlis Ave NE";
         bookManager.cities = "Bellingham";
-        bookManager.phoneNumbers = "678 8992";
+        bookManager.phoneNumbers = "(206) 222-3333";
 
-        Contact.add(new Person(firstNames, lastNames, addresses, cities, phoneNumbers));
+        Contact.add (new Person(firstNames, lastNames, addresses, cities, phoneNumbers));
+        
 
-
-        new Person(firstNames, lastNames, addresses, cities, phoneNumbers);
+      //  new Person(firstNames, lastNames, addresses, cities, phoneNumbers);
         new bookManager(Contact);
 
     }

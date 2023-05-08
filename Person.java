@@ -9,14 +9,16 @@ import java.util.LinkedList;
 public class Person extends bookMain {
 
     public static Person next;
-    public static Person previous; 
+   // public static Person previous; 
+   // Person next;
 
     LinkedList<Person> people = new LinkedList<>();
 
     public Person(String firstNames, String lastNames, String addresses,
                   String cities, String phoneNumbers){
-        
-        next = null;
+     
+        Person.next = null;
+
         setFirstName(firstNames);
         setLastName(lastNames);
         setAddress(addresses);
@@ -29,8 +31,16 @@ public class Person extends bookMain {
         getPhoneNumber();
     }
 
+    public Person head = null;
+    public Person tail = null;
+/* 
+    public void add(String firstNames, String lastNames, String addresses,
+    String cities, String phoneNumbers) {
 
+        Person newPerson = new Person(firstNames, lastNames, addresses, cities, phoneNumbers);
 
+    }
+*/
     public static String getFirstName() {
         return firstNames;
     }
@@ -89,8 +99,10 @@ public class Person extends bookMain {
 
     public String toString() {
         return String.format("First name: " + firstNames + "  Last name: " + lastNames + "  Address: " + addresses +
-                "  City: " + cities + "  Phone number: (360) " + phoneNumbers);
+                "  City: " + cities + "  Phone number: " + phoneNumbers);
     }
+
+   
 
 
 }

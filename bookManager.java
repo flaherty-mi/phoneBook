@@ -6,14 +6,17 @@ import java.util.*;
 //import java.util.Arrays;
 //import java.util.Scanner;
 
+
 public class bookManager extends bookMain {
     static String firstName = Person.firstNames;
     static String lastName = Person.lastNames;
     static String address = Person.addresses;
     static String city = Person.cities;
     static String phoneNumber = Person.phoneNumbers;
-    private Person head;
-    Person current = head;
+    
+   
+    public Person head = null;
+    public Person tail = null;
 
     // LinkedList<Person> Contact = new LinkedList<>();
     public bookManager(LinkedList<Person> Contact) {
@@ -92,75 +95,92 @@ public class bookManager extends bookMain {
 
     // method for adding a new contact node
     public void addContact(Scanner input, LinkedList<Person> Contact) {
+      // Person newPerson = new Person(firstNames, lastNames, addresses, cities, phoneNumbers);
+
         System.out.println();
         System.out.println("Please input the following information as prompted");
+        System.out.println();
         System.out.print("First name: ");
         firstName = input.next();
+        System.out.println();
         
         System.out.print("Last name: ");
         lastName = input.next();
+        System.out.println();
 
         System.out.print("Address: ");
-        address = input.next();
+        input.nextLine();
+        address = input.nextLine();
+        System.out.println();
 
         System.out.print("City: ");
         city = input.next();
+        System.out.println();
 
-        System.out.print("Phone number: (360) ");
+        System.out.print("Phone number: ");
         phoneNumber = input.next();
-        
+        System.out.println();
 
-        if (phoneNumber.length() != 8) {
-            System.out.println("phone numbers must be 7 digits long" +
-                    "and does not include area code ");
-            System.out.println("Please try again: (360) ");
-            phoneNumber = input.next();
+        if (head == null) {
+            head = new Person(firstNames, lastNames, addresses, cities, phoneNumbers);
+            tail = new Person(firstNames, lastNames, addresses, cities, phoneNumbers);
         }
+        else {
+            Person.next = new Person(firstNames, lastNames, addresses, cities, phoneNumbers);
+            tail = new Person(firstNames, lastNames, addresses, cities, phoneNumbers);
+        }
+        
         // adding new 'Person' node to the contact
-        Contact.add(new Person(firstName, lastName, address, city, phoneNumber));
+        Contact.add (new Person(firstName, lastName, address, city, phoneNumber)); 
         System.out.println("Contact succesfully added");
         rePrompt(Contact); 
     }
 
-    public String toString() {
-
-        return String.format("First name: " + firstNames + "Last name: " + lastNames + "Address: " + addresses +
-                "City: " + cities + "Phone number: (360) " + phoneNumber.substring(0, 2) + "-"
-                + phoneNumber.substring(3, 6));
-    }
 
     // method for deleting a current contact node
     public void deleteContact(Scanner input, LinkedList<Person> Contact, Person head) {
         System.out.print("Enter the last name of the contact to delete: ");
         String name = input.next();
 
-        Person current = head;
-        Person previous = null;
+        this.head = head;
+        this.tail = null;
         boolean found = false;
 
-        while (current != null) {
-            if (Person.getLastName().equals(name)) {
-                if (previous == null) {
+        while (tail != null) {
+            
+            if (lastName.equals(name)) {
+
+                if (tail == null) {
                     Person.getNext();
-                    head = Person.next;
+                    this.head = Person.next;
                    // head = current.getNext();
                 } else {
                     Person.setNext(Person.getNext());
-                    previous = Person.next;
+                    tail = Person.next;
                 }
                 System.out.println("Contact deleted:");
                 // System.out.println(current.Person);
                 found = true;
                 break;
             }
-            previous = current;
-            current = Person.getNext();
+            // previous = current;
+            tail = Person.getNext();
         }
 
         if (!found) {
             System.out.println("Contact not found.");
             name = input.next();
         }
+
+        // pos-new deleteContact meth
+
+        /* for(int i = 0; i < Contact.size(); i ++) {
+            Contact.get(i);
+        
+        if (firstName == name) {
+            
+        } 
+        } */
 
         rePrompt(Contact);
     }
@@ -176,7 +196,8 @@ public class bookManager extends bookMain {
         while (current != null) {
             if (Person.getLastName().equals(name)) {
                 System.out.println("Contact found:");
-                // System.out.println(current.getPerson());
+                System.out.println("First name: " + firstNames + "  Last name: " + lastNames + "  Address: " + addresses +
+                "  City: " + cities + "  Phone number: " + phoneNumbers);
                 found = true;
                 break;
             }
@@ -194,13 +215,13 @@ public class bookManager extends bookMain {
         System.out.print("Enter the last name of the contact to modify: ");
         String name = input.next();
 
-        Person current = head;
+        this.head = head;
         boolean found = false;
 
-        while (current != null) {
+        while (head != null) {
             if (Person.getLastName().equals(name)) {
                 System.out.println("Contact found:");
-                // System.out.println(current.getPerson());
+               // System.out.println(current.getPerson());
 
                 System.out.println("Enter new information for this contact:");
                 System.out.print("First name: ");
@@ -208,21 +229,25 @@ public class bookManager extends bookMain {
                 
                 System.out.print("Last name: ");
                 lastName = input.next();
+
                 System.out.print("Address: ");
-                address = input.next();
+                input.nextLine();
+                address = input.nextLine();
+
                 System.out.print("City: ");
                 city = input.next();
+                
                 System.out.print("Phone number: ");
-                phoneNumber = input.next();
+                input.nextLine();
+                phoneNumber = input.nextLine();
 
-                // current.getPerson();
-               // Person current = head;
 
                 Person.getFirstName();
                 Person.getLastName();
                 Person.getAddress();
                 Person.getCity();
                 Person.getPhoneNumber();
+
                // possible fallback -> current.getPerson().setPhoneNumber(phoneNumber);
 
                 System.out.println("Contact updated:");
@@ -230,7 +255,7 @@ public class bookManager extends bookMain {
                 found = true;
                 break;
             }
-            current = Person.getNext();
+            tail = Person.getNext();
         }
 
         if (!found) {
@@ -241,11 +266,18 @@ public class bookManager extends bookMain {
 
     // method for printing entire phone book in ordered fashion
     public void displayBook(LinkedList<Person> Contact) {
-
+        if (Contact != null) {
+            
+        
         // loop to print all nodes & fix string orientation
         for (int i = 0; i < Contact.size(); i++) {
             toString();
             System.out.println(Contact.get(i));
+        }
+    }
+        else if (Contact == null) {
+            System.out.println("The current phone book has no inventory");
+            System.out.println("select add from the menu to add a contact");
         }
         rePrompt(Contact);
     } // end displayBook method
